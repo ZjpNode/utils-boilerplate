@@ -1,0 +1,42 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["webworker"],
+    "module": "es6",
+    "allowJs": true,
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./types",
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
+    // Disallow features that require cross-file information for emit.
+    "isolatedModules": true,
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    // "noFallthroughCasesInSwitch":true,
+    // "outDir": "./dist",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "plugins": [
+      // 添加运行时类型检查功能(需要结合使用ttsc,即 https://github.com/cevek/ttypescript)
+      {
+        "transform": "typescript-is/lib/transform-inline/transformer" // https://github.com/woutervh-/typescript-is
+      },
+      // 解决 tsc 不会根据 paths 别名解析路径的问题 (需要结合使用ttsc,即 https://github.com/cevek/ttypescript)
+      {
+        "transform": "typescript-transform-paths", // https://joshuaavalon.io/webpack-alias-in-typescript-declarations
+        "afterDeclarations": true
+      }
+    ]
+  },
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules"]
+}

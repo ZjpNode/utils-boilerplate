@@ -1,0 +1,16 @@
+.vscode
+
+/coverage
+/docs
+/src
+/test
+
+.babelrc
+.browserslistrc
+.commitlintrc.js
+.eslintignore
+.eslintrc.js
+
+/jest.config.js
+/rollup.config.js
+/tsconfig.json

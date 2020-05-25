@@ -1,0 +1,30 @@
+{
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": "node_modules/**",
+  "presets": [
+    [
+      "@babel/env",
+      {
+        // // https://babeljs.io/docs/en/babel-preset-env/#targets
+        // "targets": {
+        //   "chrome": "70",
+        //   "ie": "11"
+        // },
+        // 不对ES6模块进行转换,交给 rollup 处理
+        // https://babeljs.io/docs/en/babel-preset-env#modules
+        // https://www.npmjs.com/package/rollup-plugin-babel#modules
+        // https://rollupjs.org/guide/en/#babel
+        "modules": false
+        // // https://babeljs.io/docs/en/babel-preset-env#usebuiltins
+        // "useBuiltIns": "usage",
+        // // https://babeljs.io/docs/en/babel-preset-env#corejs
+        // "corejs": "3"
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": ["@babel/preset-typescript", "@babel/env", "power-assert"]
+    }
+  }
+}
